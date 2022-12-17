@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-if-else</title>
+</head>
+
+<body>
+
+    <div id="directives">
+
+        <!-- v-if apaga o elemento do documento html quando a condição não é atendida -->
+        <h1 v-if="show">Hcode Treinamentos</h1>
+        
+        <!-- os atributos key são utilizaods pelo vue quando temos duas tag repetidas para evitar erros -->
+        <h2 key="available" v-if="tickets > 50">Há ingressos disponíveis</h2>
+
+        <h2 key="almost" v-else-if="tickets >= 1">Os ingressos estão acabando</h2>
+
+        <h2 key="empty" v-else>Os ingressos acabaram</h2>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                show: true,
+                tickets: 100,
+            },
+        });
+    </script>
+</body>
+
+</html>
