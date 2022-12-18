@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-for</title>
+</head>
+
+<body>
+
+    <div id="directives">
+
+        <h2>Cidades do mundo</h2>
+        <ol>
+            <!-- <li v-for="city in cities">{{ city }}</li> Array -->
+            <!-- exibe uma tag repetidas vezes alterando o seu valor de c=acordo com a posição percorrida no vetro ou objeto-->
+
+            <!-- percorrendo array de objetos -->
+            <li v-for="item in cities">
+                {{item.city}} - {{item.country}}
+            </li>
+
+        </ol>
+
+        <h2>Filmes Clássicos</h2>
+        <ul>
+            <!-- percorrendo a lista porém pegando o índice de cada posição do array -->
+            <li v-for="(picture, index) in movies">
+                {{ index }} - {{ picture }}
+            </li>
+        </ul>
+
+        <h2>Empresa</h2>
+        <p v-for="(value, key, index) in company">{{ key }}: {{ value }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                // cities: ["New York", "São Paulo", "Londres", "Rio de Janeiro"], -> Array
+                cities: [
+                    {
+                        city: "Nova York",
+                        country: "EUA",
+                    }, {
+                        city: "São Paulo",
+                        country: "Brasil",
+                    }, {
+                        city: "Rio de Janeiro",
+                        country: "Brasil",
+                    }, {
+                        city: "Londres",
+                        country: "Inglaterra",
+                    },
+                ],
+                movies: ["O grande dragão Branco", "Rocky o Lutador", "Karate Kid"],
+                company: {
+                    name: "Facebook",
+                    year: 2004,
+                    creator: "Mark Zuckerberg"
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
