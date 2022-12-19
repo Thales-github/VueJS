@@ -11,7 +11,7 @@
 <body>
 
     <div id="directives">
-
+        <!-- v-bind serve para aplicar valores dinâmicos a propriedades Html -->
         <h2>Acesse o site abaixo:</h2>
 
         <!-- Podemos escrever a diretiva de duas formas: v-bind:propriedadeAcessada ou :propriedadeAcessada -->
@@ -20,9 +20,11 @@
         <!-- ------ Atributos dinânicos para o v-bind --------- -->
 
         <!-- Ao passar um atributo dinâmico o mesmo deve ser passado entre colchetes em seguida a propriedade que terá o seu valor atribuído -->
-        <p v-bind:[arg]="value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum vel eaque dolores aliquam qui maxime porro,
+        <p v-bind:[arg]="value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum vel eaque dolores
+            aliquam qui maxime porro,
             provident repellendus tenetur atque maiores magnam quidem nam quibusdam rerum. At perspiciatis eius dolores.
         </p>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>

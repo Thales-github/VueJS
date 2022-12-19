@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-bind</title>
+</head>
+
+<body>
+
+    <div id="directives">
+
+        <!-- propriedades que possumem nomes compostos como: font-size, na hora de estilizar com Vue escrevemos
+        elas no padrão camel case -> fontSize e no exemplo concatemos o valor com a unidade de medida desejada -->
+        <h3 v-bind:style="{ fontSize: textSize + 'px' }">Hcode Treinamentos</h3>
+
+        <!-- v-model serve para alterar os dados de uma propriedade em tempo real seja do console para a aplicação como da aplicação para o console -->
+        <input v-model="textSize" type="text" placeholder="Digite o tamanho da fonte do texto">
+
+        <h4 v-bind:style="{ color: textColor }">Que a força esteja com você!!!</h4>
+
+        <input v-model="textColor" type="text" placeholder="Digite a cor do texto">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                textSize: 30,
+                textColor: "red",
+            },
+        });
+    </script>
+</body>
+
+</html>
