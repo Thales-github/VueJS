@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-slot</title>
+</head>
+
+<body>
+
+    <!-- v-slot serve para inserir conteúdop em um componente -->
+    <!-- pode ser escrito de duas formas: v-slot:div ou #div-->
+    <div id="directives">
+
+        <!-- chamamos nossos componentes como se fossem tags HTML -->
+        <text-component>
+            <template v-slot:header>
+                <!-- aqui indicamos que este template deverá ser inserido dentro do componente indicado através da diretiva v-slot -->
+                <h2>Esse é o cabeçalho do site</h2>
+            </template>
+            <template #paragrafo>
+                <!-- aqui indicamos que este template deverá ser inserido dentro do componente indicado através da diretiva v-slot -->
+                João
+            </template>
+
+        </text-component>
+        <text-component>Glaucio</text-component>
+        <text-component>Manoel</text-component>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+        //criando um componente(componente é um código Html que será inserido na página) com Vue
+        Vue.component("text-component", {//<slot> é utilizado para que o componente aceite dados dentro dele, sem essa tag o componente terá apenas o conteúdo definido em sua inicialização Vue
+            template: `
+            <div>
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                <p>
+                    <slot name="paragrafo"></slot>
+                </p>    
+            </div>
+            `
+        });
+        let app = new Vue({
+            el: "#directives",
+            data: {
+
+            },
+        });
+    </script>
+</body>
+
+</html>
