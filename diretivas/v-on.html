@@ -18,6 +18,14 @@
 
         <!-- passando evento de forma dinâmica para a aplicação  -->
         <h4 v-on:[eventname]="reverseMessage">{{ message }}</h4>
+
+        <hr>
+
+        <input type="text" placeholder="filtrar pessoas" v-on:keyup="filterPersons">
+        <ul>
+            <li v-for="person in personsFiltered">{{person}}</li>
+        </ul>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
@@ -28,11 +36,25 @@
             data: {
                 message: "Vue.js é demais!!!",
                 eventname: "dblclick",
+                persons: [
+                    "Anthony Rafael", "João Rangel", "Glaucio Daniel", "Djalma Sindeaux",
+                    "Ronaldo Braz", "Marcus Ribeiro"
+                ],
+                personsFiltered: [],
             },
             methods: {
                 reverseMessage: function () {
                     this.message = this.message.split("").reverse().join("");
+                },
+                filterPersons: function (event) {
+
+                    this.personsFiltered = this.persons.filter(name => {
+                        return name.toUpperCase().includes(event.target.value.toUpperCase());
+                    });
                 }
+            },
+            created() {// método executaod ao criar a instância Vue na página
+                this.personsFiltered = this.persons;
             }
         });
     </script>
