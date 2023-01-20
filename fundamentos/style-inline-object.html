@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos</title>
+</head>
+
+<body>
+
+    <!-- v-cloack serve para exibir os elementos Apenas quando a instância Vue for completamente carregada -->
+    <div id="styles">
+
+        <!-- No Vue escrevemos as propriedades em camelCase -->
+        <h2 :style="{fontSize: fontSizeProp + 'px'}">Thalinho</h2>
+
+        <!-- two way data biding para alterar dados de forma dinâmica na instância Vue -->
+        <input type="text" v-model="fontSizeProp">
+
+        <hr>
+
+        <h2>Digite o valor de cada cor nos campos abaixo</h2>
+        <input type="text" placeholder="Vermelho" v-model="styleRed">
+        <input type="text" placeholder="Verde" v-model="styleGreen">
+        <input type="text" placeholder="Azul" v-model="styleBlue">
+
+        <div class="" :style="styleRgb">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quos repudiandae, ex culpa totam sapiente id
+                voluptatibus aspernatur similique repellendus? Minus voluptatibus perspiciatis impedit fuga dolores
+                obcaecati dignissimos quibusdam ullam!</p>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: "#styles",
+            data: {
+                fontSizeProp: 40,
+                styleRed: 255,
+                styleBlue: 105,
+                styleGreen: 80,
+            },
+            computed: {
+                styleRgb() { return `color: rgb(${this.styleRed},${this.styleBlue},${this.styleGreen})` },
+            }
+        });
+    </script>
+</body>
+
+</html>

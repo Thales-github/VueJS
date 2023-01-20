@@ -12,11 +12,13 @@
 
     <div id="data_binding">
 
-        <h1 v-bind:title="tagMessage">{{message}}</h1><!-- o sianl : após uma diretiva significa que essa propriedade html recvedbera o valor passado na diretiva -->
-        <h1 v-bind:title="tagMessage">Mensagem em maíusculas: {{message.toUpperCase()}}</h1><!-- chamando método nativo direto da interpolação do Vue -->
+        <h1 v-bind:title="tagMessage">{{message}}</h1>
+        <!-- o sianl : após uma diretiva significa que essa propriedade html recvedbera o valor passado na diretiva -->
+        <h1 v-bind:title="tagMessage">Mensagem em maíusculas: {{message.toUpperCase()}}</h1>
+        <!-- chamando método nativo direto da interpolação do Vue -->
 
         <span v-html="tag"></span><!-- diretiVA QUE FAZ O innerHTML na tag -->
-
+        <input type="text" v-model="campo">
 
     </div>
 
@@ -30,6 +32,7 @@
                 message: "Mensagem exibida",
                 tag: "<button>Clique Aqui!!!</button>",
                 tagMessage: "Título do v-bind",
+                campo: ""
             }
         });
     </script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas personalizadas</title>
+</head>
+
+<body>
+
+    <!-- v-cloack serve para exibir os elementos Apenas quando a instância Vue for completamente carregada -->
+    <div id="directives">
+
+        <h2 v-cloack>{{message}}</h2>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                message: "Hcode Treinamentos"
+            },
+        });
+    </script>
+</body>
+
+</html>
